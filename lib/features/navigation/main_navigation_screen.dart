@@ -39,51 +39,24 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: screens[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        onTap: _onTap,
-        // selectedItemColor: Theme.of(context).primaryColor,
-        items: const [
-          BottomNavigationBarItem(
+      bottomNavigationBar: NavigationBar(
+        labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+        selectedIndex: _selectedIndex,
+        onDestinationSelected: _onTap,
+        destinations: const [
+          NavigationDestination(
             icon: FaIcon(
               FontAwesomeIcons.house,
+              color: Colors.amber,
             ),
             label: 'Home',
-            tooltip: 'What are you?',
-            backgroundColor: Colors.pink,
           ),
-          BottomNavigationBarItem(
-            icon: FaIcon(
-              FontAwesomeIcons.magnifyingGlass,
-            ),
-            label: 'Search',
-            tooltip: 'What are you?',
-            backgroundColor: Colors.teal,
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(
-              FontAwesomeIcons.magnifyingGlass,
-            ),
-            label: 'Search',
-            tooltip: 'What are you?',
-            backgroundColor: Colors.amber,
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(
-              FontAwesomeIcons.magnifyingGlass,
-            ),
-            label: 'Search',
-            tooltip: 'What are you?',
-            backgroundColor: Colors.purple,
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(
-              FontAwesomeIcons.magnifyingGlass,
-            ),
-            label: 'Search',
-            tooltip: 'What are you?',
-            backgroundColor: Colors.blue,
-          ),
+          NavigationDestination(
+              icon: FaIcon(
+                FontAwesomeIcons.magnifyingGlass,
+                color: Colors.pink,
+              ),
+              label: 'Search')
         ],
       ),
     );
